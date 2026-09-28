@@ -149,6 +149,21 @@ export default function HomePage() {
         />
       </section>
 
+      {/* Award winners announcement banner */}
+      <section style={{ backgroundColor: "#E4A72B" }} className="text-black">
+        <div className="container-fc flex flex-col items-center justify-center gap-3 py-5 text-center sm:flex-row sm:gap-6">
+          <span className="text-lg font-bold uppercase tracking-wide md:text-xl">
+            🏆 The {site.festivalYear} Award Winners Are In!
+          </span>
+          <Link
+            href="/festival/awards"
+            className="inline-flex items-center rounded-sm bg-black px-6 py-3 text-sm font-semibold uppercase tracking-wide text-white transition-colors hover:bg-[#222]"
+          >
+            See the Winners →
+          </Link>
+        </div>
+      </section>
+
       {/* Intro */}
       <section className="border-b border-border">
         <div className="container-fc py-16 md:py-20">

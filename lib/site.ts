@@ -59,6 +59,7 @@ export const primaryNav = [
 export const festivalNav = [
   { label: "Schedule", href: "/festival/schedule" },
   { label: "Film Guide", href: "/festival/films" },
+  { label: "Award Winners", href: "/festival/awards" },
   { label: "Buy Passes", href: "/festival/passes" },
   { label: "Donate", href: "/festival/donate" },
 ] as const;
