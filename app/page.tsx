@@ -157,7 +157,8 @@ export default function HomePage() {
           </span>
           <Link
             href="/festival/awards"
-            className="inline-flex items-center rounded-sm bg-black px-6 py-3 text-sm font-semibold uppercase tracking-wide text-white transition-colors hover:bg-[#222]"
+            style={{ color: "#ffffff" }}
+            className="inline-flex items-center rounded-sm bg-black px-6 py-3 text-sm font-semibold uppercase tracking-wide transition-colors hover:bg-[#222]"
           >
             See the Winners →
           </Link>
