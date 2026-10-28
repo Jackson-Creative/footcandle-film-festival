@@ -1,7 +1,7 @@
 # Project Status
 
-_Last updated: 2026-10-28 — site live on Vercel; 2026 festival (Sept 18–27) is
-over; off-season. Domain cutover status needs confirming (see below)._
+_Last updated: 2026-10-28 — site live at footcandlefilmfestival.com (Vercel);
+2026 festival (Sept 18–27) is over; off-season._
 
 ## ✅ Done
 
@@ -42,17 +42,15 @@ over; off-season. Domain cutover status needs confirming (see below)._
   `main` auto-deploys.
 - ✅ **Brevo email** — contact form confirmed delivering to info@footcandle.org.
 - ✅ **Pre-launch audit passed** (2026-08-12).
-- ❓ **Domain cutover** — as of 08-12 this was the only remaining step: point
-  `footcandlefilmfestival.com` DNS (DreamHost) at Vercel, preserving MX +
-  SPF/DKIM/DMARC (incl. Brevo) records. **Not verifiable from the repo — confirm
-  whether it's done and update this line.**
+- ✅ **Domain cutover** — `footcandlefilmfestival.com` is live on Vercel
+  (confirmed by client 2026-10-28). DNS is managed at DreamHost; keep MX +
+  SPF/DKIM/DMARC (incl. Brevo) records intact on any future DNS changes.
 
 _Note: the external Printful shop still lists a "2025" t-shirt — managed in the
 Printful account, not this site._
 
 ## ⏭️ Open items / next up
 
-- [ ] Confirm domain cutover (above).
 - [ ] Decide how long the homepage "Award Winners Are In!" banner stays up.
 - [ ] Off-season homepage: hero, dates and FAQ copy still describe the upcoming
       2026 festival in present/future tense.
