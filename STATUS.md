@@ -1,72 +1,81 @@
 # Project Status
 
-_Last updated: 2026-08-12 — LAUNCH-READY; awaiting DNS cutover_
+_Last updated: 2026-10-28 — site live on Vercel; 2026 festival (Sept 18–27) is
+over; off-season. Domain cutover status needs confirming (see below)._
 
-## ✅ Done (first pass)
+## ✅ Done
 
 - Next.js + Tailwind scaffold, Oswald font, black/white theme (matches original)
 - Global **header** (top bar with dates + socials, logo, nav, mobile menu) and
   **footer** (logo, nav, about, copyright)
-- **Homepage** — hero, intro, FilmLAB, Symposium, 4 feature blocks, FAQ, funding
-  acknowledgment. All copy taken verbatim from the current site.
-- **Festival hub** (`/festival`) + four **Eventive embed** pages: Film Guide,
-  Schedule, Buy Passes, Donate — using Eventive's own `embed.js` (verified live).
-- Static pages: **FilmLAB**, **Filmmaker Symposium**, **Become a Sponsor**,
-  **Past Festivals** (2015–2024 poster grid), **Contact Us**.
-- **Contact form** → `/api/contact` → Supabase (`contact_submissions` table),
-  with honeypot spam protection and optional email notification.
+- **Homepage** — hero, intro, video, FilmLAB, Symposium, 4 feature blocks, FAQ,
+  funding acknowledgment, **Sponsors & Supporters** wall, **Friends of the
+  Festival** names, and a **2026 Award Winners** banner.
+- **Festival hub** (`/festival`, Eventive welcome embed) + four **Eventive
+  embed** pages: Film Guide, Schedule, Buy Passes, Donate.
+- **Award Winners** page (`/festival/awards`) — 2026 winners in ceremony order,
+  with poster, director and country (from the Film Guide). Data is hard-coded
+  in `app/festival/awards/page.tsx`; posters in `public/images/awards/`.
+- Static pages: **FilmLAB** (with downloadable 2026 flyer), **Filmmaker
+  Symposium**, **Become a Sponsor** (full tier benefits + sponsorship flyer
+  PDF), **Past Festivals** (2015–2024 poster grid), **Contact Us**.
+- **Contact form** → `/api/contact` → emails info@footcandle.org via **Brevo**
+  first; saving to Supabase (`contact_submissions`) is a secondary step whose
+  failure never blocks the email. Honeypot spam protection.
 - Old WordPress URLs (`/2026-footcandle-film-festival/...`) redirect to the new
-  clean paths, preserving inbound links.
-- All graphics pulled from the current site into `public/images/`.
-- Production build passes with no type errors.
+  clean paths (`next.config.ts`).
+- Sponsor list lives in `lib/sponsors.ts`; logos in `public/images/sponsors/`.
+
+## 🗓️ Change log since launch-ready (2026-08-12)
+
+- 08-21 — FilmLAB 2026 flyer download; repo made public / GitHub connected to
+  Vercel (deploys on push).
+- 09-11 — Contact form reworked: email-first, Supabase storage non-blocking.
+- 09-19 → 09-20 — Homepage Sponsors & Supporters wall + Friends of the Festival.
+- 09-28 → 09-29 — 2026 Award Winners page + homepage banner; director/country
+  added under each film.
 
 ## 🚀 Launch status
 
 - ✅ **Supabase** — keys in Vercel; `contact_submissions` table live.
-- ✅ **Vercel** — repo imported; live at `footcandle-film-festival.vercel.app`.
-- ✅ **Brevo email** — configured; contact form confirmed delivering to
-  info@footcandle.org (end-to-end test received 2026-08-12).
-- ✅ **Pre-launch audit passed** (2026-08-12): no dead links; zero 2025 refs in
-  the site; all 5 Eventive embeds live on 2026 org; contact form working.
-- ✅ **Sponsorship flyer PDF** verified on the live site by client.
-- ⏳ **Domain cutover** — the only remaining step. Point
-  `footcandlefilmfestival.com` DNS (DreamHost) at Vercel per the cutover
-  instructions. Preserve MX + SPF/DKIM/DMARC (incl. Brevo) records.
+- ✅ **Vercel** — live at `footcandle-film-festival.vercel.app`; every push to
+  `main` auto-deploys.
+- ✅ **Brevo email** — contact form confirmed delivering to info@footcandle.org.
+- ✅ **Pre-launch audit passed** (2026-08-12).
+- ❓ **Domain cutover** — as of 08-12 this was the only remaining step: point
+  `footcandlefilmfestival.com` DNS (DreamHost) at Vercel, preserving MX +
+  SPF/DKIM/DMARC (incl. Brevo) records. **Not verifiable from the repo — confirm
+  whether it's done and update this line.**
 
 _Note: the external Printful shop still lists a "2025" t-shirt — managed in the
 Printful account, not this site._
 
-## 🚩 Content inconsistencies found on the current site (please confirm)
+## ⏭️ Open items / next up
 
-These were flagged rather than guessed. Text is preserved as‑is for now.
+- [ ] Confirm domain cutover (above).
+- [ ] Decide how long the homepage "Award Winners Are In!" banner stays up.
+- [ ] Off-season homepage: hero, dates and FAQ copy still describe the upcoming
+      2026 festival in present/future tense.
+- [ ] Add 2025 and 2026 to **Past Festivals** when ready (grid currently
+      2015–2024).
+- [ ] **2027 rollover** — see the checklist in `README.md` (`lib/site.ts` year,
+      dates, `eventiveOrg`; hero image; redirects; sponsors list; awards page;
+      FilmLAB/Symposium dates and links; sponsorship & FilmLAB flyer PDFs).
 
-- ~~**FAQ answers missing**~~ — RESOLVED 2026-08-12: all three FAQ answers
-  (lineup, awards/prizes, tickets) written and linked to the relevant pages.
-- ~~**Symposium date mismatch**~~ — RESOLVED 2026-08-12: Symposium is **Thursday,
-  Sept 24 · Hickory Community Theatre**. Symposium page updated (kept the
-  3:00–5:00pm time; confirm if that changes).
-- ~~**FilmLAB dates**~~ — RESOLVED 2026-08-12: timeline set to Fri Sept 18
-  (kickoff) → Mon Sept 21 → Thu Sept 24 → Sun Sept 27.
-- ~~**FilmLAB registration**~~ — RESOLVED 2026-08-12: "CLOSED" notice removed;
-  Register button now → `survey.jacksoninsight.com/zs/V8C5Yv`.
-- ~~**Symposium signup link**~~ — RESOLVED 2026-08-12: now →
-  `footcandlefilmfestival2026.eventive.org/schedule/6a7cb181495dcc5583b3d60f`.
-- ~~**"Enter the Festival Site"**~~ — RESOLVED: points to `/festival`, which now
-  hosts the Eventive welcome embed (mirrors the WordPress landing).
-- ~~**Sponsor page** wording~~ — RESOLVED 2026-08-12: updated to Sept 18–27, 2026
-  and "twelfth year." Tweak freely if you'd like different phrasing.
-- ~~**Sponsorship flyer**~~ — RESOLVED 2026-08-12: flyer PDF hosted at
-  `/sponsorship-opportunities-2026.pdf`; "Download the Sponsorship Flyer" button
-  links to it. (Hosted as provided — the PDF could not be previewed in-tool.)
-- ~~**Past Festivals**~~ — RESOLVED 2026-08-12: 2023 & 2024 now link to their
-  archive summaries; 2015 has no summary page (verified 404), left unlinked to
-  match the current site.
+## 🚩 Content questions from the original site
+
+All resolved 2026-08-12 (FAQ answers, Symposium date — Thu Sept 24 at Hickory
+Community Theatre, 3:00–5:00pm — FilmLAB dates and registration link,
+Symposium signup link, "Enter the Festival Site" target, sponsor wording,
+sponsorship flyer, Past Festivals links). See git history for details.
 
 ## 💡 Notes / easy tweaks
 
 - **Accent color** is teal (from the logo) — change `--accent` in
   `app/globals.css` to re‑theme instantly.
-- Homepage feature blocks are text cards; we can add imagery if you want.
+- Tailwind v4 gotcha: a text-color utility on a link can lose to the global
+  `a { color: inherit }` (cascade layers); the awards banner uses an inline
+  `style={{ color: "#ffffff" }}` to force it (commit 66adaec).
 - Original contact form used reCAPTCHA; replaced with a honeypot. Can add
   Cloudflare Turnstile / reCAPTCHA if spam becomes an issue.
-- **Shop** stays an external link to Printful (per your note).
+- **Shop** stays an external link to Printful.
